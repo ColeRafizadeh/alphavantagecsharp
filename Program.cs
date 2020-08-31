@@ -28,7 +28,7 @@ namespace rest
             request.AddParameter("datatype", "csv");
             IRestResponse response = client.Execute(request);
 
-            var timeseries = CsvSerializer
+            var timeseries 
             Console.WriteLine("Begin");
             Console.WriteLine(response.Content);
             

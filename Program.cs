@@ -12,11 +12,11 @@ namespace rest
         public class AVData
         {
             public DateTime time { get; set; }
-            public DateTime Open { get; set; }
-            public DateTime High { get; set; }
-            public DateTime Low { get; set; }
-            public DateTime Close { get; set; }
-            public DateTime Volume { get; set; }
+            public Decimal Open { get; set; }
+            public Decimal High { get; set; }
+            public Decimal Low { get; set; }
+            public Decimal Close { get; set; }
+            public Decimal Volume { get; set; }
         }
         public static void QuestionOne()
         {

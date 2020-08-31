@@ -1,0 +1,15 @@
+/Users/colerafizadeh/Projects/rest/rest/bin/Debug/netcoreapp3.1/rest.deps.json
+/Users/colerafizadeh/Projects/rest/rest/bin/Debug/netcoreapp3.1/rest.runtimeconfig.json
+/Users/colerafizadeh/Projects/rest/rest/bin/Debug/netcoreapp3.1/rest.runtimeconfig.dev.json
+/Users/colerafizadeh/Projects/rest/rest/bin/Debug/netcoreapp3.1/rest.dll
+/Users/colerafizadeh/Projects/rest/rest/bin/Debug/netcoreapp3.1/rest.pdb
+/Users/colerafizadeh/Projects/rest/rest/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/Users/colerafizadeh/Projects/rest/rest/bin/Debug/netcoreapp3.1/RestSharp.dll
+/Users/colerafizadeh/Projects/rest/rest/obj/Debug/netcoreapp3.1/rest.csprojAssemblyReference.cache
+/Users/colerafizadeh/Projects/rest/rest/obj/Debug/netcoreapp3.1/rest.AssemblyInfoInputs.cache
+/Users/colerafizadeh/Projects/rest/rest/obj/Debug/netcoreapp3.1/rest.AssemblyInfo.cs
+/Users/colerafizadeh/Projects/rest/rest/obj/Debug/netcoreapp3.1/rest.csproj.CoreCompileInputs.cache
+/Users/colerafizadeh/Projects/rest/rest/obj/Debug/netcoreapp3.1/rest.csproj.CopyComplete
+/Users/colerafizadeh/Projects/rest/rest/obj/Debug/netcoreapp3.1/rest.dll
+/Users/colerafizadeh/Projects/rest/rest/obj/Debug/netcoreapp3.1/rest.pdb
+/Users/colerafizadeh/Projects/rest/rest/obj/Debug/netcoreapp3.1/rest.genruntimeconfig.cache

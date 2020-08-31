@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "TT4JRXria5JZiMd84mGO/rTzwCIN+s1D4k1qjXKO4Kc58AkK7KgRpc3ByzrdREunvUltS6ZfualfIdBdaJSAKg==",
+  "success": true,
+  "projectFilePath": "/Users/colerafizadeh/Projects/rest/rest/rest.csproj",
+  "expectedPackageFiles": [
+    "/Users/colerafizadeh/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
+    "/Users/colerafizadeh/.nuget/packages/restsharp/106.11.4/restsharp.106.11.4.nupkg.sha512"
+  ],
+  "logs": []
+}

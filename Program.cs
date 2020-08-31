@@ -29,7 +29,8 @@ namespace rest
             request.AddParameter("outputsize", "compact");
             IRestResponse response = client.Execute(request);
 
-            Console.WriteLine(JObject.Parse(response.Content)["Meta Data"].ToObject<Dictionary<string, string>>());
+            //test
+            
 
         }
 

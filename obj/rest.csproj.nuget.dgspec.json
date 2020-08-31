@@ -43,6 +43,14 @@
             "RestSharp": {
               "target": "Package",
               "version": "[106.11.4, )"
+            },
+            "ServiceStack": {
+              "target": "Package",
+              "version": "[5.9.2, )"
+            },
+            "ServiceStack.Text": {
+              "target": "Package",
+              "version": "[5.9.2, )"
             }
           },
           "imports": [

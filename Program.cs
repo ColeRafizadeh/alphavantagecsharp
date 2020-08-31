@@ -1,8 +1,6 @@
 ﻿using System;
+using ServiceStack.Text;
 using RestSharp;
-using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
-using Newtonsoft.Json;
 
 namespace rest
 {
@@ -20,16 +18,19 @@ namespace rest
         }
         public static void QuestionOne()
         {
-            string key = "650CS2ENBH9B4PB1";
+            string key = "";
             var client = new RestClient("https://www.alphavantage.co/query?");
             var request = new RestRequest(Method.GET);
             request.AddParameter("symbol", "MSFT");
             request.AddParameter("apikey", key);
             request.AddParameter("function", "TIME_SERIES_DAILY");
             request.AddParameter("outputsize", "compact");
+            request.AddParameter("datatype", "csv");
             IRestResponse response = client.Execute(request);
 
-            //test
+            var timeseries = CsvSerializer
+            Console.WriteLine("Begin");
+            Console.WriteLine(response.Content);
             
 
         }

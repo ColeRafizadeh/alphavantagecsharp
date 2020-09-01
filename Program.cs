@@ -8,7 +8,6 @@ using RestSharp;
 
 namespace models
 {
-
     public class StockData
     {
         [JsonProperty("Meta Data")]
@@ -74,15 +73,16 @@ namespace rest
             DateTime startRange = DateTime.Today.AddDays(-7);
             DateTime endRange = DateTime.Today;
             long sum = 0;
+            int count = 0;
             foreach (var e in data.TimeSeries)
             {
                 if(e.Key >= startRange && e.Key <= endRange)
                 {
-                    Console.WriteLine(e.Value.Volume);
+                    count++;
                     sum += (int) e.Value.Volume;
                 }
             }
-            Console.WriteLine("7 day average volume of " + data.MetaData.Symbol +" " + sum/7);
+            Console.WriteLine("7 day average volume of " + data.MetaData.Symbol +" " + sum/count);
         }
         public static void QuestionTwo()
         {

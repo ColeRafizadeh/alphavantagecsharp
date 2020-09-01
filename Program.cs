@@ -15,7 +15,7 @@ namespace models
         public MetaData MetaData { get; set; }
 
         [JsonProperty("Time Series (Daily)")]
-        public List<DailyData> TimeSeries { get; set; }
+        public Dictionary<DateTime, DailyData> TimeSeries { get; set; }
     }
 
     public class MetaData
@@ -36,16 +36,16 @@ namespace models
     public class DailyData
     {
         [JsonProperty("1. open")]
-        public string Open { get; set; }
+        public double Open { get; set; }
 
         [JsonProperty("2. high")]
-        public string High { get; set; }
+        public double High { get; set; }
 
         [JsonProperty("3. low")]
-        public string Low { get; set; }
+        public double Low { get; set; }
 
         [JsonProperty("4. close")]
-        public string Close { get; set; }
+        public double Close { get; set; }
 
         [JsonProperty("5. volume")]
         public long Volume { get; set; }
@@ -59,8 +59,8 @@ namespace rest
     {
         public static void QuestionOne()
         {
-            string ticker = "msft";
-            string key = "650CS2ENBH9B4PB1";
+            var ticker = "msft";
+            var key = "650CS2ENBH9B4PB1";
             var client = new RestClient("https://www.alphavantage.co/query?");
             var request = new RestRequest(Method.GET);
             request.AddParameter("symbol", ticker);
@@ -71,20 +71,53 @@ namespace rest
             IRestResponse response = client.Execute(request);
             StockData data = JsonConvert.DeserializeObject<StockData>(response.Content);
 
-
-            Console.WriteLine(data.TimeSeries.Count);
+            DateTime startRange = DateTime.Today.AddDays(-7);
+            DateTime endRange = DateTime.Today;
             long sum = 0;
-            foreach (DailyData d in data.TimeSeries.GetRange(0, 7))
+            foreach (var e in data.TimeSeries)
             {
-                sum += d.Volume;
+                if(e.Key >= startRange && e.Key <= endRange)
+                {
+                    Console.WriteLine(e.Value.Volume);
+                    sum += (int) e.Value.Volume;
+                }
             }
-            Console.WriteLine("7 day volume average for " + data.MetaData.Symbol + " is" + sum / 7);
+            Console.WriteLine("7 day average volume of " + data.MetaData.Symbol +" " + sum/7);
+        }
+        public static void QuestionTwo()
+        {
+            var ticker = "aapl";
+            var key = "650CS2ENBH9B4PB1";
+            var client = new RestClient("https://www.alphavantage.co/query?");
+            var request = new RestRequest(Method.GET);
+            request.AddParameter("symbol", ticker);
+            request.AddParameter("apikey", key);
+            request.AddParameter("function", "TIME_SERIES_DAILY");
+            request.AddParameter("outputsize", "full");
+            request.AddParameter("datatype", "json");
+            IRestResponse response = client.Execute(request);
+            StockData data = JsonConvert.DeserializeObject<StockData>(response.Content);
 
+            DateTime startRange = DateTime.Today.AddDays(-183);
+            DateTime endRange = DateTime.Today;
+            double highest = 0;
+            foreach (var e in data.TimeSeries)
+            {
+                if (e.Key >= startRange && e.Key <= endRange)
+                {
+                   if(e.Value.Close > highest)
+                    {
+                        highest = e.Value.Close;
+                    }
+                }
+            }
+            Console.WriteLine("Highest closing price of " + data.MetaData.Symbol + " is " + highest);
         }
 
         static public void Main(String[] args)
         {
             QuestionOne();
+            QuestionTwo();
         }
     }
 }

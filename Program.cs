@@ -14,41 +14,41 @@ namespace models
         [JsonProperty("Meta Data")]
         public MetaData MetaData { get; set; }
 
-        [JsonProperty("Weekly Time Series")]
-        public Dictionary<string, WeeklyTimeSery> WeeklyTimeSeries { get; set; }
+        [JsonProperty("Time Series (Daily)")]
+        public List<DailyData> TimeSeries { get; set; }
     }
 
     public class MetaData
     {
         [JsonProperty("1. Information")]
-        public string The1Information { get; set; }
+        public string Information { get; set; }
 
         [JsonProperty("2. Symbol")]
-        public string The2Symbol { get; set; }
+        public string Symbol { get; set; }
 
         [JsonProperty("3. Last Refreshed")]
-        public DateTimeOffset The3LastRefreshed { get; set; }
+        public DateTimeOffset LastRefreshed { get; set; }
 
         [JsonProperty("4. Time Zone")]
-        public string The4TimeZone { get; set; }
+        public string TimeZone { get; set; }
     }
 
-    public class WeeklyTimeSery
+    public class DailyData
     {
         [JsonProperty("1. open")]
-        public string The1Open { get; set; }
+        public string Open { get; set; }
 
         [JsonProperty("2. high")]
-        public string The2High { get; set; }
+        public string High { get; set; }
 
         [JsonProperty("3. low")]
-        public string The3Low { get; set; }
+        public string Low { get; set; }
 
         [JsonProperty("4. close")]
-        public string The4Close { get; set; }
+        public string Close { get; set; }
 
         [JsonProperty("5. volume")]
-        public long The5Volume { get; set; }
+        public long Volume { get; set; }
     }
 }
 
@@ -72,7 +72,13 @@ namespace rest
             StockData data = JsonConvert.DeserializeObject<StockData>(response.Content);
 
 
-            
+            Console.WriteLine(data.TimeSeries.Count);
+            long sum = 0;
+            foreach (DailyData d in data.TimeSeries.GetRange(0, 7))
+            {
+                sum += d.Volume;
+            }
+            Console.WriteLine("7 day volume average for " + data.MetaData.Symbol + " is" + sum / 7);
 
         }
 

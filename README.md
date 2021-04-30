@@ -1,4 +1,4 @@
-# alphavantagecsharp
+# alphavantage & csharp
 
 
 Interview Assignment
